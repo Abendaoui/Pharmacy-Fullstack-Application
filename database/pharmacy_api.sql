@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 20, 2024 at 05:27 AM
+-- Generation Time: May 22, 2024 at 10:41 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.3.4
 
@@ -323,11 +323,14 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `user_id`, `address_id`, `order_date`, `total_price`, `order_status`, `payment_method`, `deleted`, `created_at`, `updated_at`) VALUES
 (1, 8, 4, '2024-05-19 22:43:28', '1997.00', 'delivered', 'paypal', 0, '2024-05-19 21:43:28', '2024-05-19 21:43:28'),
-(2, 7, 5, '2024-05-20 04:36:49', '330.00', 'pending', 'card', 0, '2024-05-20 03:36:49', '2024-05-20 03:36:49'),
+(2, 7, 5, '2024-05-20 04:36:49', '330.00', 'canceled', 'card', 0, '2024-05-20 03:36:49', '2024-05-22 15:57:32'),
 (3, 8, 3, '2024-05-20 04:43:42', '560.00', 'accepted', 'paypal', 0, '2024-05-20 03:43:42', '2024-05-20 03:43:42'),
 (4, 8, 4, '2024-05-20 04:53:52', '240.00', 'canceled', 'paypal', 0, '2024-05-20 03:53:52', '2024-05-20 03:53:52'),
 (5, 8, 3, '2024-05-20 04:54:33', '1050.00', 'returned', 'paypal', 0, '2024-05-20 03:54:33', '2024-05-20 03:54:33'),
-(6, 8, 3, '2024-05-20 05:25:28', '200.00', 'pending', 'card', 0, '2024-05-20 04:25:28', '2024-05-20 04:25:28');
+(6, 8, 3, '2024-05-20 05:25:28', '200.00', 'delivered', 'card', 0, '2024-05-20 04:25:28', '2024-05-20 04:25:28'),
+(7, 7, 5, '2024-05-22 14:32:53', '200.00', 'returned', 'paypal', 0, '2024-05-22 13:32:53', '2024-05-22 16:20:47'),
+(8, 7, 5, '2024-05-22 16:58:35', '549.00', 'canceled', 'card', 0, '2024-05-22 15:58:35', '2024-05-22 16:00:19'),
+(9, 7, 5, '2024-05-22 17:22:37', '1309.00', 'accepted', 'paypal', 0, '2024-05-22 16:22:37', '2024-05-22 21:37:42');
 
 -- --------------------------------------------------------
 
@@ -364,7 +367,12 @@ INSERT INTO `order_details` (`id`, `order_id`, `medecine_id`, `quantity`, `price
 (11, 4, 23, 1, '150.00', 0, '2024-05-20 03:53:52', '2024-05-20 03:53:52'),
 (12, 5, 7, 1, '400.00', 0, '2024-05-20 03:54:33', '2024-05-20 03:54:33'),
 (13, 5, 8, 1, '600.00', 0, '2024-05-20 03:54:33', '2024-05-20 03:54:33'),
-(14, 6, 14, 1, '150.00', 0, '2024-05-20 04:25:28', '2024-05-20 04:25:28');
+(14, 6, 14, 1, '150.00', 0, '2024-05-20 04:25:28', '2024-05-20 04:25:28'),
+(15, 7, 20, 1, '150.00', 0, '2024-05-22 13:32:53', '2024-05-22 13:32:53'),
+(16, 8, 10, 1, '499.00', 0, '2024-05-22 15:58:35', '2024-05-22 15:58:35'),
+(17, 9, 26, 1, '399.00', 0, '2024-05-22 16:22:37', '2024-05-22 16:22:37'),
+(18, 9, 7, 2, '400.00', 0, '2024-05-22 16:22:37', '2024-05-22 16:22:37'),
+(19, 9, 16, 1, '60.00', 0, '2024-05-22 16:22:37', '2024-05-22 16:22:37');
 
 -- --------------------------------------------------------
 
@@ -405,7 +413,8 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (1, 'App\\Models\\User', 1, 'auth_token', '8d1f305f8793d8d1971752d6e196718c9f98659cb2ca0945d2eae56759fdcb4b', '[\"*\"]', '2024-05-18 18:40:19', NULL, '2024-05-18 18:27:35', '2024-05-18 18:40:19'),
 (2, 'App\\Models\\User', 1, 'auth_token', '94bdcca4d7256b17fabb69505304befeff4aa92825e6f64f0b7c2e5ae3fe067d', '[\"*\"]', '2024-05-18 18:41:27', NULL, '2024-05-18 18:29:57', '2024-05-18 18:41:27'),
 (3, 'App\\Models\\User', 2, 'auth_token', '27b71e1abfd8663be7d03be3f0a6a1cf6acac5254ef99674d1879c3b50cc8871', '[\"*\"]', '2024-05-18 18:43:20', NULL, '2024-05-18 18:42:37', '2024-05-18 18:43:20'),
-(5, 'App\\Models\\User', 3, 'auth_token', '5202e1f51378c82681ad4525f02fe5e8cea94d0d6a6132622dbcc9096f92176c', '[\"*\"]', '2024-05-19 11:12:11', NULL, '2024-05-18 19:33:59', '2024-05-19 11:12:11');
+(5, 'App\\Models\\User', 3, 'auth_token', '5202e1f51378c82681ad4525f02fe5e8cea94d0d6a6132622dbcc9096f92176c', '[\"*\"]', '2024-05-19 11:12:11', NULL, '2024-05-18 19:33:59', '2024-05-19 11:12:11'),
+(21, 'App\\Models\\User', 2, 'auth_token', '379a1434e62aa86b91697e5a00021a46e4f243e05d34280d5b476c21142917d8', '[\"*\"]', '2024-05-22 21:00:50', NULL, '2024-05-22 14:24:04', '2024-05-22 21:00:50');
 
 -- --------------------------------------------------------
 
@@ -423,6 +432,13 @@ CREATE TABLE `returns` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `returns`
+--
+
+INSERT INTO `returns` (`id`, `order_id`, `user_id`, `return_date`, `reason`, `deleted`, `created_at`, `updated_at`) VALUES
+(1, 7, 7, '2024-05-22 17:20:47', '[object Object]', 0, '2024-05-22 16:20:47', '2024-05-22 16:20:47');
 
 -- --------------------------------------------------------
 
@@ -660,7 +676,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -702,25 +718,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `returns`
 --
 ALTER TABLE `returns`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `shippings`
