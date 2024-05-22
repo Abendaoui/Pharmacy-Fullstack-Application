@@ -13,6 +13,7 @@ import {
 } from '../../../components/Customer/containers'
 
 const Home = () => {
+  document.title = 'Home'
   return (
     <main className=' overflow-x-hidden'>
       <Hero />

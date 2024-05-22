@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axiosClient from '../../../configs/axiosClient'
 import { useParams } from 'react-router'
+import { useCart } from '../../../hooks/useCart'
+import {
+  NotificationContext,
+} from '../../../contexts/NotificationContext'
 
 const ShowProductDetails = () => {
+  const { showNotification } = useContext(NotificationContext)
+  const { cartCount, setCartCount } = useCart()
   const { slug } = useParams()
   const [data, setData] = useState({
     brand: '',
@@ -44,10 +50,11 @@ const ShowProductDetails = () => {
         console.log('Something Went Wrong!')
       }
       if (response.status === 201) {
-        console.log('Item Added To cart')
+        showNotification('success', 'Item added to cart!')
+        setCartCount(cartCount + 1)
       }
     } catch (error) {
-      console.log(error)
+      showNotification('error', 'Something went wrong!')
     }
   }
   return (

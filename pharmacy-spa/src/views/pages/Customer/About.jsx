@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export default function About() {
+  document.title = 'About'
   return (
     <div className='relative overflow-hidden bg-white h-screen'>
       <div className='pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40'>

@@ -1,27 +1,43 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { getOrderStatus } from '../../../utils/orderStatus'
 import { convertDate } from '../../../utils/convertDate'
+import { NotificationContext } from '../../../contexts/NotificationContext'
+import axiosClient from '../../../configs/axiosClient'
 const SingleOrder = ({ id, order_date, total_price, order_status }) => {
+  const { showNotification } = useContext(NotificationContext)
+  const navigate = useNavigate()
   const [keep, setKeep] = useState(false)
-  function cancelOrder(id) {}
+  const cancelOrder = async (id) => {
+    const formData = new FormData()
+    formData.append('order_status', 'canceled')
+    await axiosClient
+      .put(`/orders/${id}`, formData)
+      .then(({ data }) => {
+        showNotification('success', 'Order Canceled Successfully')
+        getOrders()
+      })
+      .catch((err) => {
+        showNotification('error', 'Something went wrong!')
+      })
+  }
   return (
     <tr>
-      <td className='px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap'>
+      <td className='px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap'>
         <div className='inline-flex items-center gap-x-3'>
           <Link to={`/order/${id}`}>#{id}</Link>
         </div>
       </td>
-      <td className='px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap'>
+      <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
         {convertDate(order_date)}
       </td>
       <td className='px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap'>
         {getOrderStatus(order_status)}
       </td>
-      <td className='px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap'>
+      <td className='px-4 py-4 text-sm text-gray-500 whitespace-nowrap'>
         {total_price}MAD
       </td>
-      <td className='px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap'>
+      <td className='px-4 py-4 text-sm text-gray-500 whitespace-nowrap'>
         <div className='flex items-center justify-around capitalize'>
           {order_status === 'pending' || order_status === 'accepted' ? (
             <button onClick={() => cancelOrder(id)}>cancel</button>

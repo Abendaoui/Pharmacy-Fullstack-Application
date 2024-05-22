@@ -5,6 +5,7 @@ import { Title } from '../../../components/Customer/presentational'
 import axiosClient from '../../../configs/axiosClient'
 const Search = () => {
   const { title } = useParams()
+  document.title = title
   const [data, setData] = useState([])
 
   const getMedecines = async () => {
@@ -28,7 +29,13 @@ const Search = () => {
       <article>
         <Title children={`You Search For ${title}`} className='text-center' />
       </article>
-      <ListSearchedMedecine data={data} />
+      {data.length > 0 ? (
+        <ListSearchedMedecine data={data} />
+      ) : (
+        <div className='text-center mb-52'>
+          <h1 className='text-xl'>No Items Found</h1>
+        </div>
+      )}
     </section>
   )
 }

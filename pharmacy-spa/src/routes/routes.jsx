@@ -12,7 +12,8 @@ import {
   ShowProductDetails,
   ShowBrandDetails,
   Search,
-  Address
+  Address,
+  Return,
 } from '../views/pages/Customer'
 import {
   Dashboard,
@@ -29,7 +30,7 @@ import {
   AddMedecine,
   AddBrand,
   AddCategory,
-
+  ShowOrder,
 } from '../views/pages/Admin'
 import NotFound from '../views/pages/Errors/NotFound'
 import Unauthorized from '../views/pages/Errors/Unauthorized'
@@ -40,8 +41,8 @@ const router = createBrowserRouter([
     element: <PublicLayout />,
     children: [
       {
-        path : '/',
-        element : <Navigate to="/auth"/>
+        path: '/',
+        element: <Navigate to='/auth' />,
       },
       {
         path: '/auth',
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
         path: '/search/:title',
         element: <Search />,
       },
+      {
+        path: '/return/:id',
+        element: <Return />,
+      },
     ],
   },
   {
@@ -157,6 +162,10 @@ const router = createBrowserRouter([
       {
         path: '/orders',
         element: <Orders />,
+      },
+      {
+        path: '/orders/:id',
+        element: <ShowOrder />,
       },
       {
         path: '/transactions',

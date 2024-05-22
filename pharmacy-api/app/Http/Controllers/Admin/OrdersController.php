@@ -6,6 +6,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Orders\OrderCollection;
+use App\Http\Resources\Orders\OrderResource;
 
 class OrdersController extends Controller
 {
@@ -17,4 +18,18 @@ class OrdersController extends Controller
 
         return new OrderCollection($orders);
     }
+
+    public function show($id)
+    {
+        $order = Order::where('id',$id)->first();
+        return new OrderResource($order->load(['address','user']));
+    }
+    
+    public function edit($id)
+    {
+        $order = Order::where('id',$id)->first();
+        return new OrderResource($order->load(['address','user']));
+    }
+
+
 }

@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { convertDate } from '../../../utils/convertDate'
-
 import { SingleOrder } from '../../../components/Customer/presentational'
 import axiosAdmin from '../../../configs/axiosAdmin'
 import axiosClient from '../../../configs/axiosClient'
 const Profile = () => {
+  document.title = "Profile"
   const [user, setProfile] = useState({
     fullname: '',
     email: '',
@@ -158,12 +157,12 @@ const Profile = () => {
                     </span>
                     <span className='tracking-wide'>Orders</span>
                   </div>
-                  <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-700'>
-                    <thead className='bg-gray-50 dark:bg-gray-800'>
+                  <table className='min-w-full divide-y divide-gray-50 rounded-md'>
+                    <thead className='bg-gray-100'>
                       <tr>
                         <th
                           scope='col'
-                          className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                          className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-black rounded-md'
                         >
                           <div className='flex items-center gap-x-3'>
                             <button className='flex items-center gap-x-2'>
@@ -199,25 +198,25 @@ const Profile = () => {
 
                         <th
                           scope='col'
-                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black'
                         >
                           Date
                         </th>
                         <th
                           scope='col'
-                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black'
                         >
                           Order Status
                         </th>
                         <th
                           scope='col'
-                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black'
                         >
                           Total Paid
                         </th>
                         <th
                           scope='col'
-                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                          className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black'
                         >
                           Actions
                         </th>

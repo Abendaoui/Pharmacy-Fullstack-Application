@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import SingleCheckoutProduct from '../../../components/Customer/containers/SingleCheckoutProduct'
 import axiosClient from '../../../configs/axiosClient'
+import { NotificationContext } from '../../../contexts/NotificationContext'
+import { useCart } from '../../../hooks/useCart'
 const Checkout = () => {
+  document.title = 'Checkout'
+  const { setCartCount } = useCart()
   const navigate = useNavigate()
+  const { showNotification } = useContext(NotificationContext)
   // Billing
   const [selectedOption, setSelectedOption] = useState('card')
   const handleOptionChange = (event) => {
@@ -49,10 +54,14 @@ const Checkout = () => {
     try {
       const response = await axiosClient.post('/orders', formData)
       if (response.status === 201) {
-        navigate('/profile')
+        showNotification('success', 'Order Placed SuccessFully')
+        setCartCount(0)
+        setTimeout(() => {
+          navigate('/profile')
+        }, 2500)
       }
     } catch (error) {
-      console.log(error)
+      showNotification('error', 'Something went wrong!')
     }
   }
 

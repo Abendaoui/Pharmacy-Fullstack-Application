@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import axiosClient from '../../../configs/axiosClient'
+import { useCart } from '../../../hooks/useCart'
+import { NotificationContext } from '../../../contexts/NotificationContext'
 const SingleProduct = ({ id, slug, medecine_image, price, name, quantity }) => {
+  const { showNotification } = useContext(NotificationContext)
+
+  const { setCartCount, cartCount } = useCart()
   const addToCart = async (id) => {
     const formData = new FormData()
     formData.append('medecine_id', id)
     formData.append('price', price)
     if (quantity < 0) {
-      console.log('not found');
+      console.log('not found')
       return false
     }
     try {
@@ -16,10 +21,11 @@ const SingleProduct = ({ id, slug, medecine_image, price, name, quantity }) => {
         console.log('Something Went Wrong!')
       }
       if (response.status === 201) {
-        console.log('Item Added To cart')
+        showNotification('success', 'Item Add To Cart')
+        setCartCount(cartCount + 1)
       }
     } catch (error) {
-      console.log(error)
+      showNotification('error', 'Something went wrong!')
     }
   }
   return (
@@ -29,7 +35,7 @@ const SingleProduct = ({ id, slug, medecine_image, price, name, quantity }) => {
     >
       <Link to={`/products/${id}`} className='aspect-square overflow-hidden'>
         <img
-          className='h-full w-full object-cover transition-all duration-300 group-hover:scale-125'
+          className='h-full w-full object-contain transition-all duration-300 group-hover:scale-125'
           src={`http://localhost:8000/images/medecines/${medecine_image}`}
           alt={name}
         />
@@ -55,17 +61,19 @@ const SingleProduct = ({ id, slug, medecine_image, price, name, quantity }) => {
         </div>
         <h3 className='mb-2 text-base text-gray-400 capitalize'>{name}</h3>
       </div>
-      <button
-        onClick={() => addToCart(id)}
-        className='group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600'
-      >
-        <div className='flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white'>
-          Add
-        </div>
-        <div className='flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-emerald-500 group-hover:text-white'>
-          +
-        </div>
-      </button>
+      {quantity > 0 && (
+        <button
+          onClick={() => addToCart(id)}
+          className='group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600'
+        >
+          <div className='flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white'>
+            Add
+          </div>
+          <div className='flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-emerald-500 group-hover:text-white'>
+            +
+          </div>
+        </button>
+      )}
     </article>
   )
 }

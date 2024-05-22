@@ -47,6 +47,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Brand
     Route::apiResource('/orders', OrdersController::class);
+    Route::get('/orders/{id}', [OrdersController::class,'show']);
+    Route::put('/orders/{id}', [OrdersController::class,'edit']);
 
     // Medecines
     Route::apiResource('/transactions', TransactionsController::class);

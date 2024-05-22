@@ -38,6 +38,11 @@ class CartController extends Controller
             'totalPrice' => $this->getTotalPrice(),
         ]);
     }
+    public function getCount()
+    {
+        $count = Cart::where('user_id', Auth::id())->count();
+        return response()->json($count);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -84,7 +89,7 @@ class CartController extends Controller
     public function destroy(Cart $cart)
     {
         $cart->delete();
-        return response()->json(['message' => 'Item removed from cart']);
+        return response()->json(['message' => 'Item removed from cart'],200);
     }
 
     public function deleteAll()

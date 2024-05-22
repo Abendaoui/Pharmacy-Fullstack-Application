@@ -12,10 +12,12 @@ import { Link } from 'react-router-dom'
 import maSvg from '../../../assets/images/ma.svg'
 import AuthMenuLink from './AuthMenuLink'
 import axios from '../../../configs/axiosAuth'
+import { useCart } from '../../../hooks/useCart'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 const DesktopView = ({ open, setOpen, handleOpen, auth }) => {
+  const { cartCount } = useCart()
   const handleLogout = async () => {
     try {
       const resp = await axios.post('/logout')
@@ -286,7 +288,12 @@ const DesktopView = ({ open, setOpen, handleOpen, auth }) => {
                       />
                     </svg>
 
-                    <span className=''>Cart</span>
+                    <span
+                      className='text-xs font-medium bg-red-500 text-white px-1 rounded-full
+                     flex justify-center items-center duration-300 mb-4'
+                    >
+                      {cartCount}
+                    </span>
                   </Link>
                 </div>
               </div>

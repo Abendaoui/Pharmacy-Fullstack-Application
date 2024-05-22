@@ -4,6 +4,7 @@ import axiosClient from '../../../configs/axiosClient'
 import Dialog from '@mui/material/Dialog'
 import AddLocationIcon from '@mui/icons-material/AddLocation'
 const Address = () => {
+  document.title = 'Address'
   const [address, setAddress] = useState({
     state: '',
     city: '',

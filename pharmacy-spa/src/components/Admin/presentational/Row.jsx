@@ -70,7 +70,7 @@ function Row({ row }) {
                     <TableCell className='mono'>Order ID</TableCell>
                     <TableCell className='mono'>Status</TableCell>
                     <TableCell className='mono' align='right'>
-                      Total Price ($)
+                      Total Price (MAD)
                     </TableCell>
                   </TableRow>
                 </TableHead>

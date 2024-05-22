@@ -3,17 +3,18 @@ import React from 'react'
 import { contactInfo } from '../../../data/data'
 import { SingleContactInfo } from '../../../components/Customer/presentational'
 const ContactUs = () => {
+  document.title = 'Contact Us'
   return (
-    <section className='bg-white dark:bg-gray-900 mx-auto max-w-7xl'>
+    <section className='bg-white  mx-auto max-w-7xl'>
       <div className='container px-6 py-12 mx-auto'>
         <div className='text-center'>
-          <p className='font-medium text-green-500 dark:text-green-400'>
+          <p className='font-medium text-green-500 dark:text-green-400 text-3xl'>
             Contact Us
           </p>
-          <h1 className='mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white'>
+          <h1 className='text-2xl font-semibold text-gray-800'>
             Get in touch
           </h1>
-          <p className='mt-3 text-gray-500 dark:text-gray-400'>
+          <p className='mt-3 text-gray-500 '>
             Our friendly team would love to hear from you.
           </p>
         </div>

@@ -41,6 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Cart Controller Fuunctions
     Route::apiResource('/carts', CartController::class);
     Route::delete('/delete_all_carts', [CartController::class, 'deleteAll']);
+    Route::get('/count', [CartController::class, 'getCount']);
 
     // Orders Controller Functions
     Route::apiResource('/orders', OrderController::class);

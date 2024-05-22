@@ -29,6 +29,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 const Products = () => {
+  document.title = 'Products'
   const [grid, setGrid] = useState(true)
   const [data, setData] = useState([])
   const getMedecines = async () => {
@@ -279,7 +280,7 @@ const Products = () => {
                     {({ open }) => (
                       <>
                         <h3 className='-my-3 flow-root'>
-                          <Disclosure.Button className='flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500'>
+                          <DisclosureButton className='flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500'>
                             <span className='font-medium text-gray-900'>
                               {section.name}
                             </span>
@@ -296,7 +297,7 @@ const Products = () => {
                                 />
                               )}
                             </span>
-                          </Disclosure.Button>
+                          </DisclosureButton>
                         </h3>
                         <DisclosurePanel className='pt-6'>
                           <div className='space-y-4'>
