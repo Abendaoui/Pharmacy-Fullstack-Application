@@ -1,0 +1,8 @@
+export { default as Header } from './Header'
+export { default as Footer } from './Footer'
+export { default as Hero } from './Hero'
+export { default as MapFrame } from './MapFrame'
+export { default as ContactForm } from './ContactForm'
+export { default as WeeklyPosts } from './WeeklyPosts'
+export { default as ListPosts } from './ListPosts'
+export { default as NewsLetter } from './NewsLetter'

@@ -1,16 +1,18 @@
 <?php
 
+use App\Models\OrderDetails;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AddressController;
-use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MedecineController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailsController;
-use App\Models\OrderDetails;
 
 Route::middleware('auth:sanctum')->group(function () {
     // User Controller Functions
@@ -29,7 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Medecine Controller Functions
     Route::apiResource('/medecines', MedecineController::class);
-    Route::get('/all_medecines', [MedecineController::class,'allMedecines']);
+    Route::get('/all_medecines', [MedecineController::class, 'allMedecines']);
     Route::get('/food_baby', [MedecineController::class, 'getFoodBaby']);
     Route::get('/search/{term}', [MedecineController::class, 'search']);
 
@@ -48,4 +50,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Orders Controller Functions
     Route::get('/suborders', [OrderDetailsController::class, 'getSubOrders']);
+
+    // Coupon
+    Route::post('/coupons/validate', [CouponController::class, 'validateCoupon']);
+
+    //Blog Posts
+    Route::get('/posts', [BlogPostController::class, 'index']);
+    Route::get('/posts/{slug}', [BlogPostController::class, 'show']);
+    Route::post('/posts', [BlogPostController::class, 'store']);
 });

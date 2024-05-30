@@ -1,5 +1,10 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom'
-import { PublicLayout, PrivateLayout, ManagementLayout } from '../views/layouts'
+import {
+  PublicLayout,
+  PrivateLayout,
+  ManagementLayout,
+  BlogLayout,
+} from '../views/layouts'
 import { Form, AdminForm } from '../views/pages/Auth'
 import {
   Home,
@@ -32,6 +37,14 @@ import {
   AddCategory,
   ShowOrder,
 } from '../views/pages/Admin'
+import {
+  Blog,
+  Post,
+  CreatePost,
+  AboutBlog,
+  ContactBlog,
+  SearchBlog,
+} from '../views/pages/blog'
 import NotFound from '../views/pages/Errors/NotFound'
 import Unauthorized from '../views/pages/Errors/Unauthorized'
 
@@ -174,6 +187,37 @@ const router = createBrowserRouter([
       {
         path: '/account',
         element: <Account />,
+      },
+    ],
+  },
+  {
+    path: '/',
+    element: <BlogLayout />,
+    children: [
+      {
+        path: '/blog',
+        element: <Blog />,
+        index: true,
+      },
+      {
+        path: '/posts/:slug',
+        element: <Post />,
+      },
+      {
+        path: '/create_post',
+        element: <CreatePost />,
+      },
+      {
+        path: '/blog/about_us',
+        element: <AboutBlog />,
+      },
+      {
+        path: '/blog/contact_us',
+        element: <ContactBlog />,
+      },
+      {
+        path: '/blog/search',
+        element: <SearchBlog />,
       },
     ],
   },

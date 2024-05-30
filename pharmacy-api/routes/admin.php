@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\TransactionsController;
+use App\Http\Controllers\Admin\CouponController;
 
 Route::middleware('auth:sanctum')->group(function () {
     // Profile
@@ -45,13 +46,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/get_brands', [MedecineController::class, 'getBrands']);
     Route::get('/get_categories', [MedecineController::class, 'getCategories']);
 
-    // Brand
+    // orders
     Route::apiResource('/orders', OrdersController::class);
-    Route::get('/orders/{id}', [OrdersController::class,'show']);
-    Route::put('/orders/{id}', [OrdersController::class,'edit']);
+    Route::get('/orders/{id}', [OrdersController::class, 'show']);
+    Route::put('/orders/{id}', [OrdersController::class, 'edit']);
 
-    // Medecines
+    // Transactions
     Route::apiResource('/transactions', TransactionsController::class);
+
+    // =Coupons
+    Route::post('/coupons', [CouponController::class, 'create']);
+    Route::post('/coupons/validate', [CouponController::class, 'validateCoupon']);
+
 });
 
 // Route::apiResources([

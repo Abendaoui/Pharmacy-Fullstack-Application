@@ -16,7 +16,7 @@
 
 /* Hide the default scrollbar */
 *::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.2rem;
 }
 
 /* Track */
@@ -64,3 +64,7 @@ input[type='checkbox'] {
   font-family: monospace !important;
 }
 
+.header-blog {
+  background-image: url('/src/assets/images/bf-1.jpg');
+  @apply m-1 rounded-md
+}

@@ -1,0 +1,6 @@
+export { default as Blog } from './Blog'
+export { default as Post } from './Post'
+export { default as CreatePost } from './CreatePost'
+export { default as AboutBlog } from './AboutBlog'
+export { default as ContactBlog } from './ContactBlog'
+export { default as SearchBlog } from './SearchBlog'
