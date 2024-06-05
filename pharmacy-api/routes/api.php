@@ -53,9 +53,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Coupon
     Route::post('/coupons/validate', [CouponController::class, 'validateCoupon']);
-
-    //Blog Posts
-    Route::get('/posts', [BlogPostController::class, 'index']);
-    Route::get('/posts/{slug}', [BlogPostController::class, 'show']);
-    Route::post('/posts', [BlogPostController::class, 'store']);
 });
+//Blog Posts
+Route::get('/posts', [BlogPostController::class, 'index']);
+Route::get('/posts/{slug}', [BlogPostController::class, 'show']);
+Route::post('/posts', [BlogPostController::class, 'store']);

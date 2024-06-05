@@ -102,6 +102,7 @@ export const navigation = {
     { name: 'Products', href: '/products' },
     { name: 'About', href: '/about' },
     { name: 'Contact Us', href: '/contact_us' },
+    { name: 'Blog', href: '/blog' },
   ],
 }
 
@@ -736,9 +737,7 @@ export const sortOptions = [
   { name: 'Price: High to Low', option: 'high', current: false },
 ]
 
-export const subCategories = [
-  { name: 'Medecines', href: '#' },
-]
+export const subCategories = [{ name: 'Medecines', href: '#' }]
 
 export const filters = [
   {

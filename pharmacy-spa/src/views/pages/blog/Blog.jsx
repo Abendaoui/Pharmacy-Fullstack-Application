@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <section>
       <Hero />
-      <WeeklyPosts />
+      {/* <WeeklyPosts /> */}
       <ListPosts />
       <NewsLetter />
     </section>

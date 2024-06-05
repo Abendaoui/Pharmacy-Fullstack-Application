@@ -19,7 +19,7 @@ class BlogPostController extends Controller
 
         $posts = BlogPost::where($filterQuery);
 
-        return new BlogPostsCollection($posts->paginate(16)->appends($request->query()));
+        return new BlogPostsCollection($posts->paginate(10)->appends($request->query()));
     }
 
     public function store(StorePostRequest $request)

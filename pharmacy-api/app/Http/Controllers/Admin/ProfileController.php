@@ -49,7 +49,8 @@ class ProfileController extends Controller
             'last' => $lastName,
             'email' => $admin->email,
             'phone' => $admin->phone ?? null,
-            'date' => $admin->created_at
+            'date' => $admin->created_at,
+            'created_at' => $admin->updated_at
         ];
 
         if ($address) {
