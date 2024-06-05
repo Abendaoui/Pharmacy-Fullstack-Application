@@ -1,3 +1,4 @@
+import React from 'react'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 import GroupIcon from '@mui/icons-material/Group'
@@ -7,6 +8,7 @@ import PersonPinIcon from '@mui/icons-material/PersonPin'
 import MedicationLiquidIcon from '@mui/icons-material/MedicationLiquid'
 import CategoryIcon from '@mui/icons-material/Category'
 import AppsIcon from '@mui/icons-material/Apps'
+import { IMG08, IMG09, IMG10, IMG11, IMG12, IMG13 } from '../assets/images'
 
 export const navigation = {
   pages: [
@@ -259,33 +261,33 @@ export const sideBarUrl = [
 
 export const services = [
   {
-    src: 'https://images.squarespace-cdn.com/content/v1/5ea080c95ad6901524de2e27/1633618118774-7P2B09JAL717GPOL1CC4/foot+bone+joint.jpg',
-    alt: 'Img by Meriç Dağlı https://unsplash.com/@meric',
+    src: IMG08,
+    alt: 'Img by Me',
     title: 'Bone Care',
   },
   {
-    src: 'https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    alt: 'Img by Meriç Dağlı https://unsplash.com/@meric',
+    src: IMG09,
+    alt: 'Img by Me',
     title: 'Body Care',
   },
   {
-    src: 'https://images.pexels.com/photos/6303712/pexels-photo-6303712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    alt: 'Img by Meriç Dağlı https://unsplash.com/@meric',
+    src: IMG10,
+    alt: 'Img by Me',
     title: 'Diabet Care',
   },
   {
-    src: 'https://images.pexels.com/photos/5842835/pexels-photo-5842835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    alt: 'Img by Meriç Dağlı https://unsplash.com/@meric',
+    src: IMG11,
+    alt: 'Img by Me',
     title: 'Eye Care',
   },
   {
-    src: 'https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    alt: 'Img by Meriç Dağlı https://unsplash.com/@meric',
+    src: IMG12,
+    alt: 'Img by Me',
     title: 'Skin Care',
   },
   {
-    src: 'https://images.pexels.com/photos/3845495/pexels-photo-3845495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    alt: 'Img by Meriç Dağlı https://unsplash.com/@meric',
+    src: IMG13,
+    alt: 'Img by Me',
     title: 'Baby Care',
   },
 ]

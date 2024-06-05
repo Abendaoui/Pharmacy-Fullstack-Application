@@ -1,5 +1,14 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
-
+import {
+  IMG01,
+  IMG02,
+  IMG03,
+  IMG04,
+  IMG05,
+  IMG06,
+  IMG07,
+} from '../../../assets/images'
 export default function About() {
   document.title = 'About'
   return (
@@ -29,37 +38,14 @@ export default function About() {
                     <div className='grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8'>
                       <div className='h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100'>
                         <img
-                          src='https://cdn.pixabay.com/photo/2015/08/25/03/50/herbs-906140_1280.jpg'
+                          src={IMG01}
                           alt=''
                           className='h-full w-full object-cover object-center'
                         />
                       </div>
                       <div className='h-64 w-44 overflow-hidden rounded-lg'>
                         <img
-                          src='https://cdn.pixabay.com/photo/2023/10/24/09/23/black-peppercorn-8337820_1280.jpg'
-                          alt=''
-                          className='h-full w-full object-cover object-center'
-                        />
-                      </div>
-                    </div>
-                    <div className='grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8'>
-                      <div className='h-64 w-44 overflow-hidden rounded-lg'>
-                        <img
-                          src='https://images.pexels.com/photos/3683088/pexels-photo-3683088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                          alt=''
-                          className='h-full w-full object-cover object-center'
-                        />
-                      </div>
-                      <div className='h-64 w-44 overflow-hidden rounded-lg'>
-                        <img
-                          src='https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                          alt=''
-                          className='h-full w-full object-cover object-center'
-                        />
-                      </div>
-                      <div className='h-64 w-44 overflow-hidden rounded-lg'>
-                        <img
-                          src='https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                          src={IMG02}
                           alt=''
                           className='h-full w-full object-cover object-center'
                         />
@@ -68,14 +54,37 @@ export default function About() {
                     <div className='grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8'>
                       <div className='h-64 w-44 overflow-hidden rounded-lg'>
                         <img
-                          src='https://images.pexels.com/photos/3273989/pexels-photo-3273989.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                          src={IMG03}
                           alt=''
                           className='h-full w-full object-cover object-center'
                         />
                       </div>
                       <div className='h-64 w-44 overflow-hidden rounded-lg'>
                         <img
-                          src='https://images.pexels.com/photos/2565761/pexels-photo-2565761.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                          src={IMG04}
+                          alt=''
+                          className='h-full w-full object-cover object-center'
+                        />
+                      </div>
+                      <div className='h-64 w-44 overflow-hidden rounded-lg'>
+                        <img
+                          src={IMG05}
+                          alt=''
+                          className='h-full w-full object-cover object-center'
+                        />
+                      </div>
+                    </div>
+                    <div className='grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8'>
+                      <div className='h-64 w-44 overflow-hidden rounded-lg'>
+                        <img
+                          src={IMG06}
+                          alt=''
+                          className='h-full w-full object-cover object-center'
+                        />
+                      </div>
+                      <div className='h-64 w-44 overflow-hidden rounded-lg'>
+                        <img
+                          src={IMG07}
                           alt=''
                           className='h-full w-full object-cover object-center'
                         />

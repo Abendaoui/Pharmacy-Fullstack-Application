@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import React,{ createContext, useState } from 'react'
 import axios from '../configs/axiosAuth'
 
 export const AuthContent = createContext({
