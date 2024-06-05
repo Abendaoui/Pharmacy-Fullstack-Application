@@ -9,6 +9,7 @@ const StartIcon = () => {
       strokeWidth={1.5}
       stroke='currentColor'
       className='h-4 w-4 text-yellow-400'
+      
     >
       <path
         strokeLinecap='round'

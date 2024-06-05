@@ -5,7 +5,8 @@ const SingleCheckoutProduct = ({ medecine_image, name, quantity, price }) => {
       <div className='overflow-hidden rounded-lg w-16 h-16 bg-gray-50 border border-gray-200'>
         <img
           src={`http://localhost:8000/images/medecines/${medecine_image}`}
-          alt=''
+          alt={name}
+          loading='lazy'
         />
       </div>
       <div className='flex-grow pl-3'>

@@ -14,6 +14,7 @@ const SingleBrand = ({ brand_name, brand_image }) => {
         <img
           src={`http://localhost:8000/images/brands/${brand_image}`}
           className='rounded-full w-28 h-28'
+          loading='lazy'
         />
       </Link>
     </article>

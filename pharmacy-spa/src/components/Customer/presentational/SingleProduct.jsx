@@ -38,6 +38,7 @@ const SingleProduct = ({ id, slug, medecine_image, price, name, quantity }) => {
           className='h-full w-full object-contain transition-all duration-300 group-hover:scale-125'
           src={`http://localhost:8000/images/medecines/${medecine_image}`}
           alt={name}
+          loading='lazy'
         />
       </Link>
       <div className='absolute top-0 m-2 rounded-full bg-white'>

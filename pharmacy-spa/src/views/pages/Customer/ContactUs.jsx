@@ -11,9 +11,7 @@ const ContactUs = () => {
           <p className='font-medium text-green-500 dark:text-green-400 text-3xl'>
             Contact Us
           </p>
-          <h1 className='text-2xl font-semibold text-gray-800'>
-            Get in touch
-          </h1>
+          <h1 className='text-2xl font-semibold text-gray-800'>Get in touch</h1>
           <p className='mt-3 text-gray-500 '>
             Our friendly team would love to hear from you.
           </p>
@@ -30,6 +28,7 @@ const ContactUs = () => {
               width='100%'
               height='100%'
               title='map'
+              loading='lazy'
             ></iframe>
           </div>
         </div>

@@ -9,6 +9,7 @@ const SingleItem = ({ id, name, slug, brand, medecine_image, price }) => {
           src={`http://localhost:8000/images/medecines/${medecine_image}`}
           alt={name}
           className='h-full w-full object-contain object-center lg:h-full lg:w-full'
+          loading='lazy'
         />
       </div>
       <div className='mt-4 flex justify-between'>

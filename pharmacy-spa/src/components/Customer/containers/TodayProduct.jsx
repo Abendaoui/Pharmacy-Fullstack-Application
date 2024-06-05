@@ -30,6 +30,7 @@ const TodayProduct = () => {
                   src='https://tycoonpackaging.com/wp-content/uploads/2023/08/custom-mini-cereal-boxes.webp'
                   className='w-full relative z-10'
                   alt=''
+                  loading='lazy'
                 />
                 <div className='border-4 border-[#20231e] absolute top-10 bottom-10 left-10 right-10 z-0'></div>
               </div>

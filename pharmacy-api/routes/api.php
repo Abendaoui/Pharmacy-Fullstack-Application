@@ -58,3 +58,17 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/posts', [BlogPostController::class, 'index']);
 Route::get('/posts/{slug}', [BlogPostController::class, 'show']);
 Route::post('/posts', [BlogPostController::class, 'store']);
+
+// Guest Routes
+
+// Brand Controller Functions
+Route::apiResource('/brands', BrandController::class);
+
+// Category Controller Functions
+Route::apiResource('/categories', CategoryController::class);
+
+// Medecine Controller Functions
+Route::apiResource('/medecines', MedecineController::class);
+Route::get('/all_medecines', [MedecineController::class, 'allMedecines']);
+Route::get('/food_baby', [MedecineController::class, 'getFoodBaby']);
+Route::get('/search/{term}', [MedecineController::class, 'search']);

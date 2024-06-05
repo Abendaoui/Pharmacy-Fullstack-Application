@@ -34,6 +34,7 @@ const SingleCard = ({
           src={`http://localhost:8000/images/medecines/${medecine_image}`}
           alt='product-image'
           className='w-full rounded-lg sm:w-40'
+          loading='lazy'
         />
       </Link>
       <div className='sm:ml-4 sm:flex sm:w-full sm:justify-between'>
