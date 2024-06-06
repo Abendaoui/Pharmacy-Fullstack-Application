@@ -9,6 +9,7 @@ const Checkout = () => {
   const { setCartCount } = useCart()
   const navigate = useNavigate()
   const { showNotification } = useContext(NotificationContext)
+
   // Billing
   const [selectedOption, setSelectedOption] = useState('card')
   const handleOptionChange = (event) => {
@@ -49,7 +50,7 @@ const Checkout = () => {
     const formData = new FormData()
     formData.append('address_id', selectedAddress)
     formData.append('payment_method', selectedOption)
-    formData.append('total_price', total + 50)
+    formData.append('total_price', total - discount + 50)
 
     try {
       const response = await axiosClient.post('/orders', formData)
@@ -64,14 +65,30 @@ const Checkout = () => {
       showNotification('error', 'Something went wrong!')
     }
   }
-
+  // Coupon
+  const [couponCode, setCouponCode] = useState('')
+  const [discount, setDiscount] = useState(0)
+  const handleApplyCoupon = async () => {
+    try {
+      const response = await axiosClient.post('/coupons/validate', {
+        code: couponCode,
+      })
+      const coupon = response.data
+      setDiscount(Number(coupon.discount))
+      showNotification('success', 'Coupon Applied SucceeFully')
+    } catch (error) {
+      showNotification('error', 'Invalid or expired coupon')
+    }
+  }
   useEffect(() => {
     getCardItems()
     getMyAddresses()
   }, [])
+
   return (
     <section>
       <div className='mx-auto max-w-7xl py-5'>
+        {/* Back Link */}
         <div className='px-5'>
           <div className='mb-2'>
             <Link
@@ -82,7 +99,7 @@ const Checkout = () => {
             </Link>
           </div>
         </div>
-        <div className='w-full bg-white border-t border-b border-gray-200 px-5 py-10 text-gray-800'>
+        <div className='w-full bg-white border-gray-200 px-5 py-10 text-gray-800'>
           <div className='w-full'>
             <div className='-mx-3 md:flex items-start'>
               {/* Left Side */}
@@ -112,11 +129,16 @@ const Checkout = () => {
                           className='w-full px-3 py-2 border border-gray-200 rounded-md duration-500 focus:outline-none focus:border-green-500 transition-colors'
                           placeholder='XXXXXX'
                           type='text'
+                          value={couponCode}
+                          onChange={(e) => setCouponCode(e.target.value)}
                         />
                       </div>
                     </div>
                     <div className='px-2'>
-                      <button className='block w-full max-w-xs mx-auto border border-transparent bg-green-400 hover:bg-green-500 focus:bg-gray-500 text-white rounded-md px-5 py-2 font-semibold'>
+                      <button
+                        className='block w-full max-w-xs mx-auto border border-transparent bg-green-400 hover:bg-green-500 focus:bg-gray-500 text-white rounded-md px-5 py-2 font-semibold'
+                        onClick={handleApplyCoupon}
+                      >
                         APPLY
                       </button>
                     </div>
@@ -130,7 +152,9 @@ const Checkout = () => {
                       <span className='text-gray-600'>Subtotal</span>
                     </div>
                     <div className='pl-3'>
-                      <span className='font-semibold'>{total}MAD</span>
+                      <span className='font-semibold'>
+                        {total - discount}MAD
+                      </span>
                     </div>
                   </div>
                   <div className='w-full flex items-center'>
@@ -148,7 +172,9 @@ const Checkout = () => {
                       <span className='text-gray-600'>Total</span>
                     </div>
                     <div className='pl-3'>
-                      <span className='font-semibold'>{total + 50} MAD</span>
+                      <span className='font-semibold'>
+                        {total - discount + 50} MAD
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -171,9 +197,7 @@ const Checkout = () => {
                           name='address'
                           onChange={(e) => setSelectedAddress(e.target.value)}
                         >
-                          <option selected value=''>
-                            Select Address
-                          </option>
+                          <option value=''>Choose</option>
                           {data.map((item) => (
                             <option key={item.id} value={item.id}>
                               {item.city} {item.street_address} {item.zip_code}
@@ -318,6 +342,28 @@ const Checkout = () => {
                       />
                       <img
                         src='https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg'
+                        width={80}
+                        className='ml-3'
+                      />
+                    </label>
+                  </div>
+                  {/* Cash */}
+                  <div className='w-full p-3'>
+                    <label
+                      htmlFor='type2'
+                      className='flex items-center cursor-pointer'
+                    >
+                      <input
+                        type='radio'
+                        className='form-radio h-5 w-5 text-green-500'
+                        name='cash'
+                        id='cash'
+                        value='cash'
+                        checked={selectedOption === 'cash'}
+                        onChange={handleOptionChange}
+                      />
+                      <img
+                        src='https://cdn-icons-png.freepik.com/512/8992/8992633.png'
                         width={80}
                         className='ml-3'
                       />

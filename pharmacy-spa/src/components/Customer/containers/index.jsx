@@ -13,4 +13,6 @@ export { default as ListProducts } from './ListProducts'
 export { default as SingleCard } from './SingleCard'
 export { default as FAQ } from './FAQ'
 export { default as ListSearchedMedecine } from './ListSearchedMedecine'
+export { default as FormFilter } from './FormFilter'
+export { default as SortMenu } from './SortMenu'
 

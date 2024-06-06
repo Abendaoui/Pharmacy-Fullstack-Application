@@ -1,11 +1,11 @@
 import React from 'react'
 
-const SingleService = ({ src, alt, title }) => {
+const SingleService = ({ src, title }) => {
   return (
     <div className='w-48 mx-auto relative rounded-lg cursor-pointer'>
       <img
         src={src}
-        alt={alt}
+        alt={title}
         className='w-full h-64 object-cover rounded-lg'
         loading='lazy'
       />

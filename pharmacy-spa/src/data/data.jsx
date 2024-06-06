@@ -13,9 +13,17 @@ import { IMG08, IMG09, IMG10, IMG11, IMG12, IMG13 } from '../assets/images'
 export const navigation = {
   pages: [
     { name: 'Products', href: '/products' },
-    { name: 'About', href: '/about' },
+    { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: '/contact_us' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Our Blog', href: '/blog' },
+  ],
+}
+export const guestNavigation = {
+  pages: [
+    { name: 'Products', href: '/guest/products' },
+    { name: 'About Us', href: '/guest/about' },
+    { name: 'Contact Us', href: '/guest/contact_us' },
+    { name: 'Our Blog', href: '/blog' },
   ],
 }
 
@@ -171,33 +179,29 @@ export const footerLinks = [
 ]
 
 export const sortOptions = [
-  { name: 'Best Rating', option: 'rating', current: false },
-  { name: 'Newest', option: 'new', current: false },
   { name: 'Price: Low to High', option: 'low', current: false },
   { name: 'Price: High to Low', option: 'high', current: false },
 ]
-
-export const subCategories = [{ name: 'Medecines', href: '#' }]
 
 export const filters = [
   {
     id: 'category',
     name: 'Category',
     options: [
-      { value: 'v1', label: 'SkinCare', checked: false },
-      { value: 'v2', label: 'Baby', checked: false },
-      { value: 'v3', label: 'Vitamins', checked: false },
+      { value: 'skincare', label: 'Skincare', checked: false },
+      { value: 'Baby Food', label: 'Baby Food', checked: false },
+      { value: 'vitamin', label: 'Vitamin', checked: false },
     ],
   },
   {
     id: 'brand',
     name: 'Brand',
     options: [
-      { value: 'b1', label: 'Carave', checked: false },
-      { value: 'b2', label: 'Merck', checked: false },
-      { value: 'b3', label: 'GSK', checked: false },
-      { value: 'b4', label: 'Nestle', checked: false },
-      { value: 'b5', label: 'J&J', checked: false },
+      { value: 'cerave', label: 'Carave', checked: false },
+      { value: 'sanofi', label: 'sanofi', checked: false },
+      { value: 'nestle', label: 'Nestle', checked: false },
+      { value: 'merck', label: 'Merck', checked: false },
+      { value: 'johnson&johnson', label: 'J&J', checked: false },
     ],
   },
 ]
@@ -292,40 +296,6 @@ export const services = [
   },
 ]
 
-export const reviews = [
-  {
-    id: 1,
-    title: 'Boost your conversion rate',
-    content:
-      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla.',
-    stars: 5,
-    reviewer: 'Michael Foster',
-  },
-  {
-    id: 2,
-    title: 'Amazing product',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada urna eget dolor tincidunt, ut tristique nisl finibus. Suspendisse potenti.',
-    stars: 4,
-    reviewer: 'Jennifer Smith',
-  },
-  {
-    id: 3,
-    title: 'Highly recommend!',
-    content:
-      'Vivamus euismod leo sit amet massa fringilla, ut tincidunt ipsum tincidunt. Aliquam erat volutpat. Sed rutrum tellus vel pretium euismod.',
-    stars: 5,
-    reviewer: 'John Doe',
-  },
-  {
-    id: 4,
-    title: 'Excellent service',
-    content:
-      'Pellentesque aliquet arcu id feugiat tincidunt. Morbi a orci ut enim laoreet sollicitudin vel nec nisi. In hac habitasse platea dictumst.',
-    stars: 4,
-    reviewer: 'Emily Johnson',
-  },
-]
 
 export const socialMediaLinks = [
   {
@@ -368,5 +338,86 @@ export const socialMediaLinks = [
         <path d='M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z' />
       </svg>
     ),
+  },
+]
+ export const listOption = [
+    {
+      id: 1,
+      title: 'Provides Essential Nutrients',
+    },
+    {
+      id: 2,
+      title: 'High In Fiber',
+    },
+    {
+      id: 3,
+      title: 'Low In Fat',
+    },
+  ]
+export const reviews = [
+  {
+    id: 1,
+    title: 'Fast and reliable delivery',
+    content:
+      'The delivery was super quick, and the packaging was excellent. The medication arrived in perfect condition. I am very satisfied with the service.',
+    stars: 5,
+    reviewer: 'Alex Brown',
+  },
+  {
+    id: 2,
+    title: 'User-friendly interface',
+    content:
+      'The app is very easy to navigate and use. I found what I needed quickly, and the checkout process was smooth and hassle-free. Great experience overall!',
+    stars: 4,
+    reviewer: 'Sarah Williams',
+  },
+  {
+    id: 3,
+    title: 'Great customer support',
+    content:
+      'I had an issue with my order, but the customer support team resolved it promptly. They were very courteous and helpful. Highly recommend this pharmacy.',
+    stars: 4,
+    reviewer: 'David Miller',
+  },
+  {
+    id: 4,
+    title: 'Competitive prices',
+    content:
+      'The prices are very reasonable, and I even found some items cheaper than other places. The discounts and offers are also a nice bonus.',
+    stars: 5,
+    reviewer: 'James Wilson',
+  },
+]
+
+export const questions = [
+  {
+    id: 1,
+    head: 'How can I place an order on the pharmacy app?',
+    answer:
+      'To place an order, simply browse through the products, add the desired items to your cart, and proceed to checkout. Follow the on-screen instructions to complete your purchase.',
+  },
+  {
+    id: 2,
+    head: 'Can I track my order after placing it?',
+    answer:
+      'Yes, you can track your order through the "My Orders" section in your account. You will also receive updates via email or SMS regarding the status of your order.',
+  },
+  {
+    id: 3,
+    head: 'Are there any delivery charges for orders?',
+    answer:
+      'Delivery charges may vary depending on your location and the total value of your order. You can see the applicable delivery charges at the checkout page before confirming your order.',
+  },
+  {
+    id: 4,
+    head: 'What payment methods are accepted?',
+    answer:
+      'We accept various payment methods including credit/debit cards, Paypal. You can choose your preferred payment method at checkout.',
+  },
+  {
+    id: 5,
+    head: 'What should I do if I receive the wrong medication?',
+    answer:
+      'If you receive the wrong medication, please contact our customer support immediately. We will arrange for a return and replacement as per our return policy.',
   },
 ]

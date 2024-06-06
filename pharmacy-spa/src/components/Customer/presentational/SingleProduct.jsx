@@ -1,8 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axiosClient from '../../../configs/axiosClient'
 import { useCart } from '../../../hooks/useCart'
 import { NotificationContext } from '../../../contexts/NotificationContext'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 const SingleProduct = ({ id, slug, medecine_image, price, name, quantity }) => {
   const { showNotification } = useContext(NotificationContext)
 
@@ -28,12 +30,21 @@ const SingleProduct = ({ id, slug, medecine_image, price, name, quantity }) => {
       showNotification('error', 'Something went wrong!')
     }
   }
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    })
+  }, [])
+
   return (
     <article
+      data-aos='fade-up'
       className='relative flex flex-col overflow-hidden rounded-lg border shadow-md duration-500
      hover:scale-100 hover:shadow-xl transition-all'
     >
-      <Link to={`/products/${id}`} className='aspect-square overflow-hidden'>
+      <Link to={`/products/${slug}`} className='aspect-square overflow-hidden'>
         <img
           className='h-full w-full object-contain transition-all duration-300 group-hover:scale-125'
           src={`http://localhost:8000/images/medecines/${medecine_image}`}

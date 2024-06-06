@@ -1,21 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import ListOptions from '../presentational/ListOptions'
+import { listOption } from '../../../data/data'
 const TodayProduct = () => {
-  const listOption = [
-    {
-      id: 1,
-      title: 'Provides Essential Nutrients',
-    },
-    {
-      id: 2,
-      title: 'High In Fiber',
-    },
-    {
-      id: 3,
-      title: 'Low In Fat',
-    },
-  ]
+
   return (
     <section className='bg-white'>
       <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
@@ -46,30 +34,7 @@ const TodayProduct = () => {
                 </p>
                 <ul className='overflow-hidden mt-4'>
                   {listOption.map((item) => {
-                    return (
-                      <li
-                        key={item.id}
-                        className='border-b last:border-none py-4 border-dashed border-[#39a9a9] flex items-center gap-5'
-                      >
-                        <span>
-                          <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            strokeWidth={1.5}
-                            stroke='currentColor'
-                            className='w-4 h-4'
-                          >
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              d='m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5'
-                            />
-                          </svg>
-                        </span>
-                        <span className='font-bold text-sm'>{item.title}</span>
-                      </li>
-                    )
+                    return <ListOptions key={item.id} title={item.title} />
                   })}
                 </ul>
               </div>

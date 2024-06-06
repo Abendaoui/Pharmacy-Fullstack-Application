@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { convertDate } from '../../../utils/convertDate'
 import axiosAdmin from '../../../configs/axiosAdmin'
 import axiosClient from '../../../configs/axiosClient'
 import { Title } from '../../../components/Admin/presentational'
 import { NotificationContext } from '../../../contexts/NotificationContext'
-import { AddButton } from '../../../components/Admin/presentational'
 const ShowOrder = () => {
   const { showNotification } = useContext(NotificationContext)
   const navigate = useNavigate()
@@ -154,10 +153,10 @@ const ShowOrder = () => {
               <select
                 id='id'
                 className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline focus:border-green-300 focus:border-2'
-                value={convertDate(order.order_date)}
+                value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
-                <option selected value={order.order_status}>
+                <option defaultChecked value={order.order_status}>
                   {order.order_status}
                 </option>
                 {options.map((option) => (

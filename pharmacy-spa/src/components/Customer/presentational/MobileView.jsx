@@ -20,7 +20,7 @@ import axios from '../../../configs/axiosAuth'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-const MobileView = ({ open, setOpen, auth }) => {
+const MobileView = ({ open, setOpen }) => {
   const handleLogout = async () => {
     try {
       const resp = await axios.post('/logout')

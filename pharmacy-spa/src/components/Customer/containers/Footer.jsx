@@ -1,7 +1,6 @@
 import React from 'react'
 import { footerLinks, socialMediaLinks } from '../../../data/data'
 import { SingleFooterLink, SingleSocialMediaLink } from '../presentational'
-import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <footer className='bg-[#163300] p-10 rounded-3xl my-8'>

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { SingleProduct, Title } from '../presentational'
+import { PaginateButton, SingleProduct, Title } from '../presentational'
 import axiosClient from '../../../configs/axiosClient'
 const ListMedecines = () => {
   const [data, setData] = useState([])
-
   const getMedecines = async () => {
     try {
       await axiosClient.get('/medecines', { count: 16 }).then(({ data }) => {

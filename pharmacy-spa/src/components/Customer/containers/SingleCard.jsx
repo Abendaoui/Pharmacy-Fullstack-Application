@@ -33,7 +33,7 @@ const SingleCard = ({
         <img
           src={`http://localhost:8000/images/medecines/${medecine_image}`}
           alt='product-image'
-          className='w-full rounded-lg sm:w-40'
+          className='w-full h-24 object-contain rounded-lg sm:w-40'
           loading='lazy'
         />
       </Link>
@@ -45,7 +45,7 @@ const SingleCard = ({
         <div className='mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6'>
           <div className='flex items-center border-gray-100'>
             <input
-              className='h-8 w-8 border bg-white text-center text-xs outline-none'
+              className='h-8 w-8 border rounded-md bg-white text-center text-xs outline-none'
               type='number'
               value={quantity}
               readOnly

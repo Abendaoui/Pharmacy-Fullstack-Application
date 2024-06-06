@@ -37,7 +37,6 @@ const style = {
   p: 4,
 }
 export default function Header() {
-  const auth = true
   const [open, setOpen] = useState(false)
   const [open2, setOpen2] = useState(false)
   const handleOpen = () => setOpen2(true)
@@ -62,13 +61,13 @@ export default function Header() {
     <>
       <header className='bg-[#f6f7f8] lg:max-w-[83rem] max-w-[80rem] mx-auto z-50 my-4 rounded-xl  '>
         {/* Mobile menu */}
-        <MobileView open={open} setOpen={setOpen} auth={auth} />
+        <MobileView open={open} setOpen={setOpen}  />
         {/* Desktop Menu */}
         <DesktopView
           open={open}
           setOpen={setOpen}
           handleOpen={handleOpen}
-          auth={auth}
+         
         />
       </header>
       {/* Serach Model */}

@@ -83,7 +83,15 @@ class MedecineController extends Controller
     {
         return new MedecineResource($medecine->load(['brand', 'category']));
     }
+    /**
+     * Display the specified resource.
+     */
+    public function getMedecine($slug)
+    {
+        $medecine = Medecine::where('slug', $slug)->first();
 
+        return new MedecineResource($medecine->load(['brand', 'category']));
+    }
     /**
      * Update the specified resource in storage.
      */

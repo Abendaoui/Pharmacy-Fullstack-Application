@@ -2,9 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import axiosClient from '../../../configs/axiosClient'
 import { useParams } from 'react-router'
 import { useCart } from '../../../hooks/useCart'
-import {
-  NotificationContext,
-} from '../../../contexts/NotificationContext'
+import { NotificationContext } from '../../../contexts/NotificationContext'
 
 const ShowProductDetails = () => {
   const { showNotification } = useContext(NotificationContext)
@@ -24,7 +22,7 @@ const ShowProductDetails = () => {
 
   const getMedecines = async () => {
     try {
-      await axiosClient.get(`/medecines/${slug}`).then(({ data }) => {
+      await axiosClient.get(`/getmedecine/${slug}`).then(({ data }) => {
         if (data) {
           setData(data.data)
         }

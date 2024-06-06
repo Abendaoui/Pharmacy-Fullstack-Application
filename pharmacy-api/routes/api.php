@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Medecine Controller Functions
     Route::apiResource('/medecines', MedecineController::class);
+    Route::get('/getmedecine/{slug}', [MedecineController::class, 'getMedecine']);
     Route::get('/all_medecines', [MedecineController::class, 'allMedecines']);
     Route::get('/food_baby', [MedecineController::class, 'getFoodBaby']);
     Route::get('/search/{term}', [MedecineController::class, 'search']);
@@ -69,6 +70,8 @@ Route::apiResource('/categories', CategoryController::class);
 
 // Medecine Controller Functions
 Route::apiResource('/medecines', MedecineController::class);
+Route::get('/getmedecine/{slug}', [MedecineController::class, 'getMedecine']);
+
 Route::get('/all_medecines', [MedecineController::class, 'allMedecines']);
 Route::get('/food_baby', [MedecineController::class, 'getFoodBaby']);
 Route::get('/search/{term}', [MedecineController::class, 'search']);

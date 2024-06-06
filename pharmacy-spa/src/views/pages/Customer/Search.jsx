@@ -27,7 +27,7 @@ const Search = () => {
   return (
     <section>
       <article>
-        <Title children={`You Search For ${title}`} className='text-center' />
+        <Title children={`Result For : ${title}`} className='text-center' />
       </article>
       {data.length > 0 ? (
         <ListSearchedMedecine data={data} />

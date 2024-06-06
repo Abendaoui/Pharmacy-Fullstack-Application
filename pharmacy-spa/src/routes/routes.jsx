@@ -46,6 +46,12 @@ import {
   ContactBlog,
   SearchBlog,
 } from '../views/pages/blog'
+import {
+  HomeGuest,
+  ProductsGuest,
+  SearchGuest,
+  ShowGuest,
+} from '../views/pages/Guest'
 import NotFound from '../views/pages/Errors/NotFound'
 import Unauthorized from '../views/pages/Errors/Unauthorized'
 
@@ -54,6 +60,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <PublicLayout />,
     children: [
+      // Auth
       {
         path: '/',
         element: <Navigate to='/auth' />,
@@ -61,11 +68,36 @@ const router = createBrowserRouter([
       {
         path: '/auth',
         element: <Form />,
+        index: true,
       },
-
       {
         path: '/admin',
         element: <AdminForm />,
+      },
+      // Guest
+      {
+        path: '/guest/home',
+        element: <HomeGuest />,
+      },
+      {
+        path: '/guest/products/:slug',
+        element: <ShowGuest />,
+      },
+      {
+        path: '/guest/search/:title',
+        element: <SearchGuest />,
+      },
+      {
+        path: '/guest/products',
+        element: <ProductsGuest />,
+      },
+      {
+        path: '/guest/about',
+        element: <About />,
+      },
+      {
+        path: '/guest/contact_us',
+        element: <ContactUs />,
       },
     ],
   },

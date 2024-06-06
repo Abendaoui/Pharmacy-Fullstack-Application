@@ -16,7 +16,7 @@ import { useCart } from '../../../hooks/useCart'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-const DesktopView = ({ open, setOpen, handleOpen, auth }) => {
+const DesktopView = ({ open, setOpen, handleOpen }) => {
   const { cartCount } = useCart()
   const handleLogout = async () => {
     try {

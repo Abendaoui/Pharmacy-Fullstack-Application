@@ -7,6 +7,7 @@ const SingleCheckoutProduct = ({ medecine_image, name, quantity, price }) => {
           src={`http://localhost:8000/images/medecines/${medecine_image}`}
           alt={name}
           loading='lazy'
+          className='h-100 w-100 object-contain'
         />
       </div>
       <div className='flex-grow pl-3'>

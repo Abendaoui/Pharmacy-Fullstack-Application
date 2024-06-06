@@ -5,7 +5,6 @@ import {
   Services,
   ListBrands,
   ListPopularMedecines,
-  ListDiscount,
   ListBabyFood,
   TodayProduct,
   Reviews,
@@ -21,11 +20,10 @@ const Home = () => {
       <ListMedecines />
       <ListBrands />
       <ListPopularMedecines />
-      {/* <ListDiscount /> */}
       <ListBabyFood />
       <TodayProduct />
       <Reviews />
-      <FAQ/>
+      <FAQ />
     </main>
   )
 }

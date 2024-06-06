@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { SingleProduct } from '../presentational'
 
 const ListSearchedMedecine = ({ data }) => {
@@ -12,7 +12,7 @@ const ListSearchedMedecine = ({ data }) => {
             return <SingleProduct key={medecine.id} {...medecine} />
           })}
         </div>
-        <div></div>
+        
       </div>
     </section>
   )
